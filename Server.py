@@ -12,4 +12,11 @@ server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
 server.bind(ADDR)
 server.listen()
+
+clients = {}
+
+def broadcast(msg):
+    for client in clients:
+        client.send(msg)
+        
 print(f"Server is up with [{SERVER}] ...")
