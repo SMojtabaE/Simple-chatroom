@@ -21,7 +21,10 @@ def broadcast(msg):
 
 
 def left_the_chat(client):
-    pass
+    msg_left = f"{clients[client]} left the chat!!"
+    clients.pop(client)
+    client.close()
+    broadcast(msg_left.encode(FORMAT))
 
 def handle(client):
     while True:
@@ -65,3 +68,5 @@ def receive():
             print("somthing went wrong!!!")
 
 print(f"Server is up with [{SERVER}] ...")
+receive()
+
