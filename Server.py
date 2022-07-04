@@ -19,8 +19,31 @@ def broadcast(msg):
     for client in clients:
         client.send(msg)
 
-def handle(client):
+
+def left_the_chat(client):
     pass
+
+def handle(client):
+    while True:
+        try:
+            try:
+                massage = client.recv(1024)
+            except:
+                print(f"[{clients[client]}] left forcly!!")
+                left_the_chat(client)
+                print("somthing went wrong!!!")
+                break
+            msg = massage.decode(FORMAT)
+            if msg == DISCONNET_MSG:
+                print(f"[{clients[client]}] left !!")
+                left_the_chat(client)
+                break
+            print(msg)
+            broadcast(massage)
+        except:
+            print(f"[{clients[client]}] left forcly!!")
+            left_the_chat(client)
+            break
 
 
 def receive():
