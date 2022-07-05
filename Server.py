@@ -37,7 +37,7 @@ def handle(client):
                 print("somthing went wrong!!!")
                 break
             msg = massage.decode(FORMAT)
-            if msg == DISCONNET_MSG:
+            if msg == DISCONNECT_MSG:
                 print(f"[{clients[client]}] left !!")
                 left_the_chat(client)
                 break
