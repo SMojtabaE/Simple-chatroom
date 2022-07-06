@@ -11,3 +11,15 @@ username = input("enter your username : ")
 
 client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 client.connect(ADDR)
+
+def write():
+    while True:
+        massage = input("('leave'->exit):")
+        if massage == DISCONNET_MSG:
+            client.send(DISCONNET_MSG.encode(FORMAT))
+            print ("you enterd leav!!!")
+            input(" ")
+            break 
+        else:
+            msg = f'{username}: {massage}'
+            client.send(msg.encode(FORMAT))
