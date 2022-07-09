@@ -5,7 +5,7 @@ PORT = 5050
 SERVER = socket.gethostbyname(socket.gethostname())
 ADDR = (SERVER,PORT)
 FORMAT = "utf-8"
-DISCONNET_MSG = "leave"
+DISCONNET_MSG = "!leave"
 
 username = input("enter your username : ")
 
@@ -38,3 +38,10 @@ def write():
         else:
             msg = f'{username}: {massage}'
             client.send(msg.encode(FORMAT))
+
+
+recv_thread = threading.Thread(target=receive)
+recv_thread.start()
+
+write_thread = threading.Thread(target=write)
+write_thread.start()
