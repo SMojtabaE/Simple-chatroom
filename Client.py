@@ -29,7 +29,7 @@ def receive():
         
 def write():
     while True:
-        massage = input("('leave'->exit):")
+        massage = input("('!leave'->exit):")
         if massage == DISCONNET_MSG:
             client.send(DISCONNET_MSG.encode(FORMAT))
             print ("you enterd leav!!!")
