@@ -1,5 +1,5 @@
 # Simple chatroom
- A university project for computer networking class.
+ A university project for computer networking class.This project is a simple chatroom that multiple clients can chat at the same time.
  # Description
  In this project I used TCP protocol and Socket for communication between Server and clients, And used threading for handeling one or more clients at the same time.
 ### Executing program
